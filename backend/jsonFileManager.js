@@ -29,7 +29,7 @@ const DEFAULT_MESSAGES = {
 };
 
 const newMessage = {
-    "id": 7,
+    "id": 12,
     "author": "Eve Anderson",
     "message": "It's sunny and warm outside!",
     "datetime": "2023-01-01T12:45:00"
