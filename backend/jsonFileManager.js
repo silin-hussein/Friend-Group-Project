@@ -1,20 +1,36 @@
-post();
+const API_KEY = "$2a$10$Aat4wCb8nzm8up2GEGaRle6OwswNkxbnbYOuvY9oX6Kmqx7JNl.hS";
+const BASE_URL = "https://api.jsonbin.io/v3/b/";
+const BIN_ID = "6582e462266cfc3fde6bcba5";
 
-function get() {
+//sample json file
+let jsonFile = {
+    "name": "John",
+    "age": 31,
+    "city": "New York"
+};
+
+innit();
+
+async function innit() {
+    await putNewJsonFileToServer(jsonFile);
+    await getJsonFile();
+}
+
+async function getJsonFile() {
     let req = new XMLHttpRequest();
 
     req.onreadystatechange = () => {
     if (req.readyState == XMLHttpRequest.DONE) {
-        console.log(req.responseText);
+        return req.responseText;
     }
     };
 
-    req.open("GET", "https://api.jsonbin.io/v3/b/6582e462266cfc3fde6bcba5/latest", true);
-    req.setRequestHeader("X-Master-Key", "$2a$10$Aat4wCb8nzm8up2GEGaRle6OwswNkxbnbYOuvY9oX6Kmqx7JNl.hS");
+    req.open("GET", BASE_URL + BIN_ID + "/latest", true);
+    req.setRequestHeader("X-Master-Key", API_KEY);
     req.send();
 }
 
-function post() {
+async function putNewJsonFileToServer(jsonFile) {
     let req = new XMLHttpRequest();
 
     req.onreadystatechange = () => {
@@ -23,8 +39,8 @@ function post() {
     }
     };
 
-    req.open("PUT", "https://api.jsonbin.io/v3/b/6582e462266cfc3fde6bcba5", true);
+    req.open("PUT", BASE_URL + BIN_ID, true);
     req.setRequestHeader("Content-Type", "application/json");
-    req.setRequestHeader("X-Master-Key", "$2a$10$Aat4wCb8nzm8up2GEGaRle6OwswNkxbnbYOuvY9oX6Kmqx7JNl.hS");
-    req.send('{"sample": "Hello World"}');
+    req.setRequestHeader("X-Master-Key", API_KEY);
+    req.send(jsonFile);
 }
