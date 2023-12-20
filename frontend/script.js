@@ -35,14 +35,12 @@ function loadPrevMessages() {
 function printMessage(messageJson) {
   messagesDom.innerHTML += `
     <div class="message">
-        <strong>${message.datetime}</strong><span>${message.author}:</span>
+        ${message.datetime}<br>
+        <strong>${message.author}:</strong>
         </br>
         ${message.message}
     </div>
   `;
 
-  function scrollToBottom() {
-    var chatContainer = document.getElementById('chat-container');
-    chatContainer.scrollTop = chatContainer.scrollHeight;
-  }
+  messagesDom.scrollTop = messagesDom.scrollHeight;
 }
