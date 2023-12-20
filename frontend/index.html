@@ -6,6 +6,7 @@
     <title>Friend Group</title>
     <link rel="stylesheet" href="style.css">
     <script src="./script.js" defer></script>
+    <script src="../backend/jsonFileManager.js" defer></script>
 </head>
 <body>
     <header>
@@ -14,8 +15,7 @@
 
     <main>
         <div id="namePopup">
-            <div>Enter your "friend" name: </div>
-            <input type="text" id="enterName">
+            <label for="enterName">Enter your "friend" name: </label><input type="text" id="enterName">
             <button class="buttonSend" onclick="sendName()">start</button>
         </div>
 

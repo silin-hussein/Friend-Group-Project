@@ -35,19 +35,20 @@ const newMessage = {
     "datetime": "2023-01-01T12:45:00"
 }
 
-addMessage(newMessage);
+// addMessage(newMessage);
 
 async function addMessage(newMessage) {
     readApi().then(apiJson => {
         apiJson.record.messages.push(newMessage);
         updateApi(apiJson.record);
         }
-    )
+    );
 }
 
+// not tested
 async function removeMessage(messageId) {
     readApi().then(apiJson => {
-        for (let i = 0; i < apiJson.record.messages; i++) {
+        for (let i = 0; i < apiJson.record.messages.length; i++) {
             if (apiJson.record.messages[i].messageId == messageId) {
                 apiJson.record.messages.splice(i, i);
             }
@@ -55,7 +56,7 @@ async function removeMessage(messageId) {
 
         updateApi(apiJson.record);
         }
-    )
+    );
 }
 
 async function readApi() {

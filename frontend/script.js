@@ -1,5 +1,3 @@
-const messagesDom = document.getElementById('messages');
-
 let username;
 
 const message = {
@@ -17,30 +15,57 @@ function sendName() {
   document.querySelector('main').innerHTML += `
       <div id="messageField">
         <h2>${username}</h2>
-        <div>Message your friends:</div>
+        <label for="enterMessage">Message your friends</label>
         <input type="text" id="enterMessage">
-          <button class="buttonSend">send</button>
+          <button onclick="sendMessage()" class="buttonSend">send</button>
       </div>
   `;
 }
 
-function loadPrevMessages() {
+async function loadPrevMessages() {
+  const messagesDom = document.getElementById('messages');
+
   messagesDom.style.display = 'flex';
 
-  for (let i = 0; i < 15; i++) {
-    printMessage(message);
-  }
+  readApi().then(
+    apiJson => {
+      for (let i = 0; i < apiJson.record.messages.length; i++) {
+        printMessage(apiJson.record.messages[i]);
+      }
+    }
+  )
 }
 
+function sendMessage() {
+  const now = new Date();
+
+  const newMessage = {
+    "id": 12,
+    "author": username,
+    "message": document.getElementById('enterMessage').value,
+    "datetime": now.toString()
+  }
+
+  console.log(newMessage)
+
+  addMessage(newMessage);
+
+  printMessage(newMessage);
+}
+
+
+
 function printMessage(messageJson) {
+  const messagesDom = document.getElementById('messages');
+
   messagesDom.innerHTML += `
     <div class="message">
-        ${message.datetime}<br>
-        <strong>${message.author}:</strong>
+        ${messageJson.datetime}<br>
+        <strong>${messageJson.author}:</strong>
         </br>
-        ${message.message}
+        ${messageJson.message}
     </div>
   `;
 
-  messagesDom.scrollTop = messagesDom.scrollHeight;
+  // messagesDom.scrollTop = messagesDom.scrollHeight;
 }
