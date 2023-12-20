@@ -35,9 +35,7 @@ const newMessage = {
     "datetime": "2023-01-01T12:45:00"
 }
 
-
 addMessage(newMessage);
-
 
 async function addMessage(newMessage) {
     readApi().then(apiJson => {
@@ -73,14 +71,13 @@ async function readApi() {
     }
 }
 
-
 async function updateApi(jsonToUpdate) {
     let req = new XMLHttpRequest();
 
     req.onreadystatechange = () => {
         if (req.readyState == XMLHttpRequest.DONE) {
             if (req.status == 200) {
-                console.log("Successfully updated to: " + req.responseText);
+                console.log("Successfully updated API json to: " + req.responseText);
             } else {
                 console.log("An err occured while trying to update API json");
             }
