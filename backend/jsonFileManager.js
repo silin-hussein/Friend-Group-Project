@@ -12,8 +12,8 @@ let jsonFile = {
 innit();
 
 async function innit() {
-    await putNewJsonFileToServer(jsonFile);
-    await getJsonFile();
+    //await putNewJsonFileToServer(jsonFile);
+    // await getJsonFile();
 }
 
 async function getJsonFile() {
