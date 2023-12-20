@@ -29,7 +29,7 @@ const DEFAULT_MESSAGES = {
 };
 
 const newMessage = {
-    "id": 5,
+    "id": 7,
     "author": "Eve Anderson",
     "message": "It's sunny and warm outside!",
     "datetime": "2023-01-01T12:45:00"
@@ -40,6 +40,19 @@ addMessage(newMessage);
 async function addMessage(newMessage) {
     readApi().then(apiJson => {
         apiJson.record.messages.push(newMessage);
+        updateApi(apiJson.record);
+        }
+    )
+}
+
+async function removeMessage(messageId) {
+    readApi().then(apiJson => {
+        for (let i = 0; i < apiJson.record.messages; i++) {
+            if (apiJson.record.messages[i].messageId == messageId) {
+                apiJson.record.messages.splice(i, i);
+            }
+        }
+
         updateApi(apiJson.record);
         }
     )
@@ -72,22 +85,26 @@ async function readApi() {
 }
 
 async function updateApi(jsonToUpdate) {
-    let req = new XMLHttpRequest();
-
-    req.onreadystatechange = () => {
-        if (req.readyState == XMLHttpRequest.DONE) {
-            if (req.status == 200) {
-                console.log("Successfully updated API json to: " + req.responseText);
-            } else {
-                console.log("An err occured while trying to update API json");
+    fetch(BASE_URL + BIN_ID, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Master-Key': X_MASTER_KEY
+        },
+        body: JSON.stringify(jsonToUpdate)
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('An error occurred while trying to update API json');
             }
-        }
-    };
-
-    req.open("PUT", BASE_URL + BIN_ID, true);
-    req.setRequestHeader("Content-Type", "application/json");
-    req.setRequestHeader("X-Master-Key", X_MASTER_KEY);
-    req.send(JSON.stringify(jsonToUpdate));
+            return response.json();
+        })
+        .then(data => {
+            console.log('Successfully updated API json to:', data);
+        })
+        .catch(error => {
+            console.error('Error:', error.message);
+        });
 }
 
 
