@@ -8,17 +8,20 @@
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <h1>Friend group</h1>
-    <div id="namePopup">
-        <div>Enter your name: </div>
-        <input type="text" id="enterName">
-        <div class="buttonSend" onclick="sendName()">send</div>
-    </div>
+    <header>
+        <h1>FriendGroup</h1>
+    </header>
 
-    <div id="messageField">
-        <div>Enter your message:</div>
-        <input type="text" id="enterMessage">
-        <div class="buttonSend">send</div>
-    </div>
+    <main>
+        <div id="namePopup">
+            <div>Enter your "friend" name: </div>
+            <input type="text" id="enterName">
+            <button class="buttonSend" onclick="sendName()">start</button>
+        </div>
+
+        <div id="messages">
+
+        </div>
+    </main>
 </body>
 </html>

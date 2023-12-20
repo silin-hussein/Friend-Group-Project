@@ -1,12 +1,48 @@
-let username
+const messagesDom = document.getElementById('messages');
+
+let username;
+
+const message = {
+  "id": 12,
+  "author": "Eve Anderson",
+  "message": "It's sunny and warm outside!",
+  "datetime": "2023-01-01T12:45:00"
+}
 
 function sendName() {
-  username = document.getElementById("enterName").value
-  document.getElementById("namePopup").style.display = "none"
+  username = document.getElementById("enterName").value;
+  document.getElementById("namePopup").style.display = "none";
   loadPrevMessages();
-  document.getElementById("messageField").style.display = "block"
+
+  document.querySelector('main').innerHTML += `
+      <div id="messageField">
+        <h2>${username}</h2>
+        <div>Message your friends:</div>
+        <input type="text" id="enterMessage">
+          <button class="buttonSend">send</button>
+      </div>
+  `;
 }
 
 function loadPrevMessages() {
-  console.log("go");
+  messagesDom.style.display = 'flex';
+
+  for (let i = 0; i < 15; i++) {
+    printMessage(message);
+  }
+}
+
+function printMessage(messageJson) {
+  messagesDom.innerHTML += `
+    <div class="message">
+        <strong>${message.datetime}</strong><span>${message.author}:</span>
+        </br>
+        ${message.message}
+    </div>
+  `;
+
+  function scrollToBottom() {
+    var chatContainer = document.getElementById('chat-container');
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+  }
 }
