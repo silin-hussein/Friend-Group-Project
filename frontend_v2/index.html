@@ -6,22 +6,20 @@
     <title>Friend Group</title>
     <link rel="stylesheet" href="style/style.css">
     <script src="script/script.js" defer></script>
-    <script src="../backend/jsonFileManager.js" defer></script>
+    <script src="api/messagesApiManager.js" defer></script>
 </head>
 <body>
-    <header>
-        <h1>FriendGroup</h1>
-    </header>
+<header>
+    <h1>FriendGroup</h1>
+</header>
 
-    <main>
-        <div id="namePopup">
-            <label for="enterName">Enter your "friend" name: </label><input type="text" id="enterName">
-            <button class="buttonSend" onclick="sendName()">start</button>
-        </div>
+<main>
+    <div id="namePopup">
+        <label for="enterName">Enter your "friend" name: </label><input type="text" id="enterName">
+        <button class="buttonSend" onclick="sendName()">start</button>
+    </div>
 
-        <div id="messages">
-
-        </div>
-    </main>
+    <div id="messages"></div>
+</main>
 </body>
 </html>

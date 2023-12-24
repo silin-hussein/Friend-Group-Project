@@ -19,6 +19,9 @@ function sendName() {
         <label for="enterMessage">Message your friends:</label>
         <input type="text" id="enterMessage">
         <button onclick="sendMessage()" class="buttonSend">send</button>
+        <button onclick="printChatLog()"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M13.5 2c-5.621 0-10.211 4.443-10.475 10h-3.025l5 6.625 5-6.625h-2.975c.257-3.351 3.06-6 6.475-6 3.584 0 6.5 2.916 6.5 6.5s-2.916 6.5-6.5 6.5c-1.863 0-3.542-.793-4.728-2.053l-2.427 3.216c1.877 1.754 4.389 2.837 7.155 2.837 5.79 0 10.5-4.71 10.5-10.5s-4.71-10.5-10.5-10.5z"/>
+        </svg></button>
       </div>
   `;
 }
@@ -26,13 +29,13 @@ function sendName() {
 function initMessages() {
     document.getElementById('messages').style.display = 'flex';
 
-    setTimeout(() => {
-        document.querySelector('#enterMessage').addEventListener("keyup", (event) => {
-            if (event.key === "Enter") {
-                console.log('Enter key pressed');
-            }
-        });
-    }, 10);
+    // setTimeout(() => {
+    //     document.querySelector('#enterMessage').addEventListener("keyup", (event) => {
+    //         if (event.key === "Enter") {
+    //             console.log('Enter key pressed');
+    //         }
+    //     });
+    // }, 10);
 
     // methode in ../api/messagesApiManager
     printChatLog();
@@ -82,20 +85,17 @@ async function printChatLog() {
     await synchroniseLocalChatLog()
 
     // this command must be after await, because before messagesDom is still display none (because DOM is slow)
-    const messagesDom= document.getElementById('messages');
-
-    console.log('old: ' + JSON.stringify(chatLogJsonUnsynchronised));
-    console.log('new: ' + JSON.stringify(chatLogJson));
+    const messagesDom = document.getElementById('messages');
 
     if (JSON.stringify(chatLogJsonUnsynchronised) !== JSON.stringify(chatLogJson)) {
-        console.log('Chat is not synchronised!');
+        console.log('Chat is being synchronised!');
         messagesDom.innerHTML = messagesToHtml(chatLog);
 
         messagesDom.scrollTo({
             top: messagesDom.scrollHeight,
         });
     } else {
-        console.log('Chat is synchronised!');
+        console.log('Chat is already synchronised!');
     }
 }
 
@@ -103,9 +103,6 @@ async function synchroniseLocalChatLog() {
     await readApi().then(apiJson => {
         chatLog = apiJson.record.messages;
         chatLogJson = apiJson.record;
-
-        console.log('chatlog:');
-        console.log(chatLog);
     });
 }
 
