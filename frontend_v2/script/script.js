@@ -1,37 +1,11 @@
 let username;
 
 let chatLog = [];
+let chatLogJson = {};
 
-const message = {
-    "id": 12,
-    "author": "Eve Anderson",
-    "message": "It's sunny and warm outside!",
-    "datetime": "2023-01-01T12:45:00"
-}
-
-async function initMessages() {
-    document.getElementById('messages').style.display = 'flex';
-
-    setTimeout(() => {
-        document.querySelector('#enterMessage').addEventListener("keyup", (event) => {
-            if (event.key === "Enter") {
-                console.log('Enter key pressed');
-            }
-        });
-    }, 10);
-
-    // wait for messages to be visible
-    printChatLog();
-
-    // old code... may not work
-    // readApi().then(
-    //   apiJson => {
-    //     for (let i = 0; i < apiJson.record.messages.length; i++) {
-    //       printMessage(apiJson.record.messages[i]);
-    //     }
-    //   }
-    // );
-}
+// setInterval(() =>{
+//     printChatLog();
+// },3000);
 
 function sendName() {
     username = document.getElementById("enterName").value;
@@ -44,35 +18,51 @@ function sendName() {
         <h2>${username}</h2>
         <label for="enterMessage">Message your friends:</label>
         <input type="text" id="enterMessage">
-          <button onclick="sendMessage()" class="buttonSend">send</button>
+        <button onclick="sendMessage()" class="buttonSend">send</button>
       </div>
   `;
 }
 
+function initMessages() {
+    document.getElementById('messages').style.display = 'flex';
+
+    setTimeout(() => {
+        document.querySelector('#enterMessage').addEventListener("keyup", (event) => {
+            if (event.key === "Enter") {
+                console.log('Enter key pressed');
+            }
+        });
+    }, 10);
+
+    // methode in ../api/messagesApiManager
+    printChatLog();
+}
+
+
 function sendMessage() {
-  const now = new Date();
+    const now = new Date();
 
-  const newMessage = {
-    "id": 12,
-    "author": username,
-    "message": document.getElementById('enterMessage').value,
-    "datetime": now.toString()
-  }
+    const newMessage = {
+        "id": 12,
+        "author": username,
+        "message": document.getElementById('enterMessage').value,
+        "datetime": now.toString()
+    }
 
-  console.log(newMessage);
+    console.log(newMessage);
 
-  //methode from different file
-  addMessage(newMessage);
+    // methode in ../api/messagesApiManager
+    addMessage(newMessage);
 
-  printMessage(newMessage);
+    printMessage(newMessage);
 }
 
 function printMessage(messageJson) {
-  const messagesDom = document.getElementById('messages');
+    const messagesDom = document.getElementById('messages');
 
-  document.getElementById('enterMessage').value = '';
+    document.getElementById('enterMessage').value = '';
 
-  messagesDom.innerHTML += `
+    messagesDom.innerHTML += `
     <div class="message">
         ${messageJson.datetime}<br>
         <strong>${messageJson.author}:</strong>
@@ -81,66 +71,52 @@ function printMessage(messageJson) {
     </div>
   `;
 
-  messagesDom.scrollTo({
-    top: messagesDom.scrollHeight,
-    behavior: 'smooth'
-  });
+    messagesDom.scrollTo({
+        top: messagesDom.scrollHeight, behavior: 'smooth'
+    });
 }
 
 async function printChatLog() {
-    await synchroniseLocalChatLog();
+    const chatLogJsonUnsynchronised = chatLogJson;
 
-    // this command must be after await, because before it is not
-    const messagesDom = document.getElementById('messages');
+    await synchroniseLocalChatLog()
 
-    const chatLogHtml= chatLogToHtml();
+    // this command must be after await, because before messagesDom is still display none (because DOM is slow)
+    const messagesDom= document.getElementById('messages');
 
-    console.log('waited')
-    console.log(chatLogHtml);
-    console.log(messagesDom)
+    console.log('old: ' + JSON.stringify(chatLogJsonUnsynchronised));
+    console.log('new: ' + JSON.stringify(chatLogJson));
 
-    messagesDom.innerHTML = chatLogHtml;
+    if (JSON.stringify(chatLogJsonUnsynchronised) !== JSON.stringify(chatLogJson)) {
+        console.log('Chat is not synchronised!');
+        messagesDom.innerHTML = messagesToHtml(chatLog);
 
-    messagesDom.scrollTo({
-        top: messagesDom.scrollHeight,
-    });
-
-    // synchroniseLocalChatLog().then(() => {
-    //         console.log(chatLogToHtml())
-    //         console.log(chatLog);
-    //         const chatLogHtml= 'chat log html: ' + chatLogToHtml();
-    //
-    //         console.log(chatLogHtml);
-    //
-    //         messagesDom.innerHTML = chatLogToHtml();
-    //
-    //         messagesDom.scrollTo({
-    //             top: messagesDom.scrollHeight,
-    //         });
-    //     }
-    // );
+        messagesDom.scrollTo({
+            top: messagesDom.scrollHeight,
+        });
+    } else {
+        console.log('Chat is synchronised!');
+    }
 }
 
 async function synchroniseLocalChatLog() {
-    await readApi().then(
-        apiJson => {
-            console.log(apiJson.record.messages);
+    await readApi().then(apiJson => {
+        chatLog = apiJson.record.messages;
+        chatLogJson = apiJson.record;
 
-            chatLog = apiJson.record.messages;
-
-            console.log(chatLog);
-        }
-    );
+        console.log('chatlog:');
+        console.log(chatLog);
+    });
 }
 
-function chatLogToHtml() {
+function messagesToHtml(messages) {
     let messagesHtml = '';
 
-    for (let i = 0; i < chatLog.length; i++) {
-        const messageJson = chatLog[i];
+    for (let i = 0; i < messages.length; i++) {
+        const messageJson = messages[i];
 
         messagesHtml += `
-      <div class="message">
+      <div class="message" data-id="${messageJson.id}">
         ${messageJson.datetime}<br>
         <strong>${messageJson.author}:</strong>
         </br>
