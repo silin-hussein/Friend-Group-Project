@@ -1,12 +1,12 @@
 # FriendGroup - Social Media App
 
-FriendGroup is a Social Media App aimed at fostering deep connections between friends and facilitating communication within tight-knit friend groups.
+Different to any other Social Media App, this application helps you to stay in contact with your friends, rather than connecting to new people.
 
 ## Features
 
-- **Create Friend Groups:** Create your friend group or be added to one.
+- **Create Friend Groups:** Create your "FriendGroup" or be added to your friends "FriendGroup".
   
-- **Group Chat:** A group chat designed to stay in touch and make plans. Similar to WhatsApp but tailored to the needs of close friend groups.
+- **Group Chat:** A group chat designed to stay in touch and make plans. Similar to WhatsApp group chat but tailored to the needs of close friend groups.
 
 ## In Development (MVP)
 
