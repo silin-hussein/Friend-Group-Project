@@ -10,9 +10,9 @@ Different to any other Social Media App, this application helps you to stay in c
 
 ## In Development (MVP)
 
-- **Node.js Backend:** Utilizes a MySQL database to store group chat messages.
+- **Node.js Backend:** Utilizes a .json file that acts like a database to store group chat messages.
 
-- **Frontend:** Uses TypeScript, CSS, and HTML to provide a user-friendly interface.
+- **Frontend:** Uses JavaScript, CSS, and HTML to provide a user-friendly interface.
 
 ## Future Features
 
@@ -27,10 +27,3 @@ This project is developed by an agile team of 6 software developers and designer
 ## Get Involved
 
 If you're interested in our project or want to contribute to the team, contact us at s.mayer@HTBLALeonding.onmicrosoft.com.
-
-## Installation
-
-1. Clone the repository: `git clone https://github.com/YourUsername/FriendGroup.git`
-2. Install backend dependencies: `cd backend && npm install`
-3. Install frontend dependencies: `cd frontend && npm install`
-4. Start the application: `npm start`
