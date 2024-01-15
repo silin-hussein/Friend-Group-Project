@@ -1,14 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs').promises; // Import fs.promises to use async file operations
+const fs = require('fs').promises; // Import fs.promises to use async file operation
 
-router.get('/', (req, res, next) => {
-    res.status(200).json({
-        message: "Handling GET requests to /messages"
-    });
-});
-
-router.get('/messages', async (req, res) => {
+router.get('/', async (req, res, next) => {
     try {
         const data = await fs.readFile('./messages.json', 'utf8');
         const messages = JSON.parse(data);
@@ -20,7 +14,7 @@ router.get('/messages', async (req, res) => {
     }
 });
 
-router.post('/messages/add', async (req, res) => {
+router.post('/add', async (req, res) => {
     try {
         const data = await fs.readFile('./messages.json', 'utf8');
         const messages = JSON.parse(data);
@@ -40,7 +34,7 @@ router.post('/messages/add', async (req, res) => {
     }
 });
 
-router.post('/messages/remove/:id', async (req, res) => {
+router.post('/remove/:id', async (req, res) => {
     try {
         const messageId = req.params.id;
         const data = await fs.readFile('./messages.json', 'utf8');
@@ -61,7 +55,7 @@ router.post('/messages/remove/:id', async (req, res) => {
 });
 
 // (Optional/Extra)
-router.patch('/messages/update/:id', async (req, res) => {
+router.patch('/update/:id', async (req, res) => {
     try {
         const messageId = req.params.id;
         const data = await fs.readFile('./messages.json', 'utf8');
