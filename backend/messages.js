@@ -19,10 +19,12 @@ router.post('/add', async (req, res) => {
         const data = await fs.readFile('./messages.json', 'utf8');
         const messages = JSON.parse(data);
 
-        const newMessage = req.body.message;
-        messages.push(newMessage);
+        const newMessageJson = JSON.parse(req.query.message);
+
+        messages.messages.push(newMessageJson);
 
         await fs.writeFile('./messages.json', JSON.stringify(messages, null, 2));
+        
         res.json({ 
             message: 'Message added successfully',
             messages
@@ -30,47 +32,6 @@ router.post('/add', async (req, res) => {
     } catch (error) {
         res.status(500).json({ 
             error: 'Error adding message!' 
-        });
-    }
-});
-
-router.post('/remove/:id', async (req, res) => {
-    try {
-        const messageId = req.params.id;
-        const data = await fs.readFile('./messages.json', 'utf8');
-        let messages = JSON.parse(data);
-
-        messages = messages.filter((msg, index) => index != messageId);
-
-        await fs.writeFile('./messages.json', JSON.stringify(messages, null, 2));
-        res.json({ 
-            message: 'Message removed successfully',
-            messages
-        });
-    } catch (error) {
-        res.status(500).json({ 
-            error: 'Error removing message!' 
-        });
-    }
-});
-
-// (Optional/Extra)
-router.patch('/update/:id', async (req, res) => {
-    try {
-        const messageId = req.params.id;
-        const data = await fs.readFile('./messages.json', 'utf8');
-        let messages = JSON.parse(data);
-
-        const updatedMessage = req.body.message;
-        messages[messageId] = updatedMessage;
-
-        await fs.writeFile('./messages.json', JSON.stringify(messages, null, 2));
-        res.json({ 
-            message: 'Message updated successfully', messages 
-        });
-    } catch (error) {
-        res.status(500).json({ 
-            error: 'Error updating message!' 
         });
     }
 });
