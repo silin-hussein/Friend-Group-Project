@@ -14,21 +14,22 @@
 
 <main>
 
-    <div class="login-box">
+    <div class="login-box" id="login">
         <div id="login-box-white">
-        <img src="../src/img/design1.png" alt="logo">
-        <div id="namePopup">
-            <h1>Log In to <span id="friend">Friend</span> <span id="group">Group</span></h1>
-            <label for="enterName">Enter your "friend" name: </label>
-            <input  type="text" placeholder="username" id="enterName">
-            <input  type="text" placeholder="password" id="enterpassword">
-            <button class="buttonSend" onclick="sendName()">start</button>
-            <div id="errorContainer"></div>
-        </div>
+            <img id="logo-start" src="../src/img/design1.png" alt="logo">
+                <div id="namePopup">
+                    <h1>Log In to <span id="friend">Friend</span> <span id="group">Group</span></h1>
+                    <label for="enterName">Enter your "friend" name: </label>
+                    <input  type="text" placeholder="username" id="enterName">
+                    <input  type="text" placeholder="password" id="enterpassword">
+                    <button class="buttonSend" onclick="sendName()">start</button>
+                    <div id="errorContainer"></div>
+                </div>
+            </div>
         </div>
     </div>
-    </div>
-    <div id="messages"></div>
+
+    <div id="messages"> </div>
 
     <div id="messageField"></div>
 </main>
