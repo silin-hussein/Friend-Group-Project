@@ -19,9 +19,9 @@ router.post('/add', async (req, res) => {
         const data = await fs.readFile('./messages.json', 'utf8');
         const messages = JSON.parse(data);
 
-        const newMessageJson = JSON.parse(req.query.message);
+        console.log(req.body);
 
-        messages.messages.push(newMessageJson);
+        messages.messages.push(req.body);
 
         await fs.writeFile('./messages.json', JSON.stringify(messages, null, 2));
         
@@ -31,8 +31,10 @@ router.post('/add', async (req, res) => {
         });
     } catch (error) {
         res.status(500).json({ 
-            error: 'Error adding message!' 
+            error: 'Error adding message!'
         });
+
+        console.log(error);
     }
 });
 
