@@ -39,14 +39,13 @@ function sendName() {
 }
 
 function checkUsername(username) {
-    // checks whether or not the username is empty or null
+    // checks whether or not the username is empty, undefined or null
     // open for further name checks in the future
 
     let usernameIsValid = true;
     if (username === null || username === undefined || username.length === 0) {
         document.getElementById("errorContainer").innerHTML = "Please enter your username.";
         usernameIsValid = false;
-        console.log(usernameIsValid);
     }
 
     return usernameIsValid;
