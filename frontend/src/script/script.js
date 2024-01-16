@@ -95,7 +95,7 @@ async function printChatLog() {
     // this command must be after await, because before messagesDom is still display none (because DOM is slow)
     const messagesDom = document.getElementById('messages');
 
-    if (JSON.stringify(chatLogJsonUnsynchronised) !== JSON.stringify(chatLogJson)) {
+    if (JSON.stringify(chatLogJsonUnsynchronised) !== chatLog) {
         console.log('Chat is being synchronised!');
         messagesDom.innerHTML = messagesToHtml(chatLog);
 
@@ -109,8 +109,8 @@ async function printChatLog() {
 
 async function synchroniseLocalChatLog() {
     await readApi().then(apiJson => {
-        chatLog = apiJson.record.messages;
-        chatLogJson = apiJson.record;
+        console.log(apiJson);
+        chatLog = apiJson.messages;
     });
 }
 
