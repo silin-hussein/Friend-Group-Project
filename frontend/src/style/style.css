@@ -73,15 +73,18 @@ button {
 
 .message {
     top: 0;
-    width: 100%;
+    width: 90%;
     padding: 1% 1% 1% 3%;
 }
 
 #messageField {
-    width: 100%;
+    width: 90%;
 }
 
+
+
 #messageField input {
+    border: solid black 1px;
     width: 75%;
 }
 
