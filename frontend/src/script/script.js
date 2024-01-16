@@ -67,7 +67,7 @@ function sendMessage() {
         const newMessage = {
             "id": 12,
             "author": username,
-            "message": document.getElementById('enterMessage').value,
+            "message": message,
             "datetime": now.toString()
         }
 
