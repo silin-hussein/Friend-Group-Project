@@ -57,21 +57,27 @@ function initMessages() {
 
 
 function sendMessage() {
-    const now = new Date();
+    let messageIsValid = true;
+    let message = document.getElementById('enterMessage').value;
+    messageIsValid = message === null || message.length === 0; // checks if the message is empty
+    
+    if (messageIsValid) {
+        const now = new Date();
 
-    const newMessage = {
-        "id": 12,
-        "author": username,
-        "message": document.getElementById('enterMessage').value,
-        "datetime": now.toString()
+        const newMessage = {
+            "id": 12,
+            "author": username,
+            "message": document.getElementById('enterMessage').value,
+            "datetime": now.toString()
+        }
+
+        console.log(newMessage);
+
+        // methode in ../api/messagesApiManager
+        addMessage(newMessage);
+
+        printMessage(newMessage);
     }
-
-    console.log(newMessage);
-
-    // methode in ../api/messagesApiManager
-    addMessage(newMessage);
-
-    printMessage(newMessage);
 }
 
 function printMessage(messageJson) {
