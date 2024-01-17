@@ -120,7 +120,7 @@ header {
     border-radius: 1rem;
 }
 
-#messageField #sendButton {
+#messageField #sendButton, #reloadButton {
     height: 3.75rem;
     width: 3.75rem;
 
@@ -131,11 +131,12 @@ header {
     justify-content: center;
     align-items: center;
     transition-duration: 100ms;
+
+    cursor: pointer;
 }
 
 #messageField #sendButton svg {
     width: 1.75rem;
-    
 }
 
 
