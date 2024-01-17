@@ -1,6 +1,21 @@
-# FriendGroup - Social Media App
+# <span style="color:teal;">FriendGroup - Social Media App</span>
 
-Different to any other Social Media App, this application helps you to stay in contact with your friends, rather than connecting to new people.
+**<span style="color:#6487a8;">"Stay in touch rather than connect from scratch"**</span>
+
+## Introduction
+Welcome to our project where our key focus is on maintaining deep friendships, rather than starting the process of a new friendship from scratch over and over again.
+
+## Usage
+Clone the repository and open the index.html in the frontend public folder.
+
+In order to enter the chat you have to create a username. In the chat you can send the messages and your friends in the group can read them.
+
+*Login-Screen:*  
+<img
+  src="./frontend/src/img/loginScreenshot.JPG"
+  alt="Alt text"
+  title="Optional title"
+  style="display: inline-block; margin: 0 auto; max-width: 300px">
 
 ## Features
 
