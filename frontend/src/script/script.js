@@ -9,13 +9,15 @@ let chatLogJson = {};
 
 function sendName() {
     username = document.getElementById("enterName").value;
-    document.getElementById("namePopup").style.display = "none";
-    document.getElementById("flex-con").style.display = "none";
-    document.body.style.backgroundColor = "white";
+    if (checkUsername(username)) {
+        document.getElementById("namePopup").style.display = "none";
+        document.getElementById("flex-con").style.display = "none";
+       
+        document.body.style.backgroundColor = "white";
 
-    initMessages();
-
-    document.querySelector('#chatScreen').style.display = 'flex';
+        initMessages();
+        document.querySelector('#chatScreen').style.display = 'flex';
+    }
 }
 
 document.getElementById('messageField').addEventListener('keypress', e => {
@@ -23,6 +25,19 @@ document.getElementById('messageField').addEventListener('keypress', e => {
         sendMessage();
     }
 });
+
+function checkUsername(username) {
+    // checks whether or not the username is empty, undefined or null
+    // open for further name checks in the future
+
+    let usernameIsValid = true;
+    if (username === null || username === undefined || username.length === 0) {
+        document.getElementById("errorContainer").innerHTML = "Please enter your username.";
+        usernameIsValid = false;
+    }
+
+    return usernameIsValid;
+}
 
 function initMessages() {
     document.getElementById('messages').style.display = 'flex';
@@ -33,21 +48,29 @@ function initMessages() {
 
 
 function sendMessage() {
-    const now = new Date();
+    let messageIsValid = true;
+    let message = document.getElementById('enterMessage').value;
+    messageIsValid = message != null && message.length != 0; // checks if the message is empty - open for further checks in the future
+    
+    if (messageIsValid) {
+        const now = new Date();
 
-    const newMessage = {
-        "id": 12,
-        "author": username,
-        "message": document.getElementById('enterMessage').value,
-        "datetime": now.toString()
+        const newMessage = {
+            "id": 12,
+            "author": username,
+            "message": message,
+            "datetime": now.toString()
+        }
+
+        console.log(newMessage);
+
+        // methode in ../api/messagesApiManager
+        addMessage(newMessage);
+
+        printMessage(newMessage);
     }
-
-    console.log(newMessage);
-
-    // methode in ../api/messagesApiManager
-    addMessage(newMessage);
-
-    printMessage(newMessage);
+    
+    // the user can be told the message was invalid, here
 }
 
 function printMessage(messageJson) {
