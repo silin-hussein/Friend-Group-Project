@@ -79,7 +79,7 @@ function printMessage(messageJson) {
     document.getElementById('enterMessage').value = '';
 
     messagesDom.innerHTML += `
-    <div class="messageWrapper">
+    <div class="messageWrapper messageRight">
         <div class="message">
             ${messageJson.datetime}<br>
             <strong>${messageJson.author}:</strong>
@@ -127,8 +127,16 @@ function messagesToHtml(messages) {
     for (let i = 0; i < messages.length; i++) {
         const messageJson = messages[i];
 
+        let messageRight = '';
+
+        console.log(messageJson.author + ' - ' + username);
+
+        if (messageJson.author === username) {
+            messageRight ='messageRight';
+        }
+
         messagesHtml += `
-        <div class="messageWrapper">
+        <div class="messageWrapper ${messageRight}">
             <div class="message" data-id="${messageJson.id}">
                 ${messageJson.datetime}<br>
                 <strong>${messageJson.author}:</strong>
