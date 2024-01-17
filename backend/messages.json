@@ -1,16 +1,76 @@
 {
-    "messages": [
-        {
-            "id": 1,
-            "author": "John Doe",
-            "message": "Hello, how are you?",
-            "datetime": "2023-01-01T12:00:00"
-        },
-        {
-            "id": 2,
-            "author": "John",
-            "message": "Hello, how are you?",
-            "datetime": "2023-01-01T12:15:00"
-        }
-    ]
+  "messages": [
+    {
+      "id": 1,
+      "author": "John Doe",
+      "message": "Hello, how are you?",
+      "datetime": "2023-01-01T12:00:00"
+    },
+    {
+      "id": 2,
+      "author": "John",
+      "message": "Hello, how are you?",
+      "datetime": "2023-01-01T12:15:00"
+    },
+    {
+      "id": 12,
+      "author": "sdfgd",
+      "message": "lmao",
+      "datetime": "Wed Jan 17 2024 09:17:44 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      "id": 12,
+      "author": "ölkgpoew",
+      "message": "does it work?",
+      "datetime": "Wed Jan 17 2024 09:18:01 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      "id": 12,
+      "author": "",
+      "message": "it woorks",
+      "datetime": "Wed Jan 17 2024 09:18:15 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      "id": 12,
+      "author": "selin",
+      "message": "",
+      "datetime": "Wed Jan 17 2024 10:22:58 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      "id": 12,
+      "author": "selin",
+      "message": "",
+      "datetime": "Wed Jan 17 2024 10:22:59 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      "id": 12,
+      "author": "selin",
+      "message": "",
+      "datetime": "Wed Jan 17 2024 10:23:00 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      "id": 12,
+      "author": "selin",
+      "message": "",
+      "datetime": "Wed Jan 17 2024 10:23:00 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      "id": 12,
+      "author": "selin",
+      "message": "",
+      "datetime": "Wed Jan 17 2024 10:23:00 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      "id": 12,
+      "author": "selin",
+      "message": "",
+      "datetime": "Wed Jan 17 2024 10:23:00 GMT+0100 (Central European Standard Time)"
+    },
+    {
+      "id": 12,
+      "author": "sayo",
+      "message": "kpoefkewkü",
+      "datetime": "Wed Jan 17 2024 10:50:37 GMT+0100 (Central European Standard Time)"
+    }
+  ]
 }

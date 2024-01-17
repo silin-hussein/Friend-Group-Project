@@ -10,7 +10,7 @@ let chatLogJson = {};
 function sendName() {
     username = document.getElementById("enterName").value;
     document.getElementById("namePopup").style.display = "none";
-    document.getElementById("logo-start").style.display = "none";
+    document.getElementById("flex-con").style.display = "none";
     document.body.style.backgroundColor = "white";
 
     initMessages();
