@@ -146,7 +146,10 @@ header {
     height: 100vh;
 }
 
-
+#logo-start {
+    width: 50%;
+    display: none;
+}
 
 .login-box-white{
     background-color: white;
