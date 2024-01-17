@@ -57,11 +57,11 @@ function initMessages() {
 
 
 function sendMessage() {
-    let messageIsInvalid = true;
+    let messageIsValid = true;
     let message = document.getElementById('enterMessage').value;
-    messageIsInvalid = message === null || message.length === 0; // checks if the message is empty - open for further checks in the future
+    messageIsValid = message != null && message.length != 0; // checks if the message is empty - open for further checks in the future
     
-    if (messageIsInvalid) {
+    if (messageIsValid) {
         const now = new Date();
 
         const newMessage = {
@@ -77,9 +77,9 @@ function sendMessage() {
         addMessage(newMessage);
 
         printMessage(newMessage);
-    } else {
-        console.log("message is invalid");
     }
+    
+    // the user can be told the message was invalid, here
 }
 
 function printMessage(messageJson) {
