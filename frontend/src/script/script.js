@@ -3,56 +3,32 @@ let username;
 let chatLog = [];
 let chatLogJson = {};
 
-// setInterval(() =>{
-//     printChatLog();
-// },3000);
-
-function sendName() {
-    username = document.getElementById("enterName").value;
-    if (checkUsername(username)) {
-        document.getElementById("namePopup").style.display = "none";
-        document.getElementById("flex-con").style.display = "none";
-       
-        document.body.style.backgroundColor = "white";
-
-        initMessages();
-        document.querySelector('#chatScreen').style.display = 'flex';
-    }
-}
-
 document.getElementById('messageField').addEventListener('keypress', e => {
     if (e.key === 'Enter') {
         sendMessage();
     }
 });
 
-function checkUsername(username) {
-    // checks whether or not the username is empty, undefined or null
-    // open for further name checks in the future
+function sendName() {
+    username = document.getElementById("enterName").value;
 
-    let usernameIsValid = true;
-    if (username === null || username === undefined || username.length === 0) {
-        document.getElementById("errorContainer").innerHTML = "Please enter your username.";
-        usernameIsValid = false;
+    if (checkUsername(username)) {
+        document.getElementById("namePopup").style.display = "none";
+        document.getElementById("flex-con").style.display = "none";
+
+        document.body.style.backgroundColor = "white";
+
+        printChatLog();
+        document.getElementById('username').innerHTML = username;
+        document.querySelector('#chatScreen').style.display = 'flex';
     }
-
-    return usernameIsValid;
 }
-
-function initMessages() {
-    document.getElementById('messages').style.display = 'flex';
-
-    // methode in ../api/messagesApiManager
-    printChatLog();
-}
-
 
 function sendMessage() {
-    let messageIsValid = true;
-    let message = document.getElementById('enterMessage').value;
-    messageIsValid = message != null && message.length != 0; // checks if the message is empty - open for further checks in the future
-    
-    if (messageIsValid) {
+    const message = document.getElementById('enterMessage').value;
+    const messagesDom = document.getElementById('messages');
+
+    if (message != null && message.length != 0) {
         const now = new Date();
 
         const newMessage = {
@@ -65,33 +41,32 @@ function sendMessage() {
         console.log(newMessage);
 
         // methode in ../api/messagesApiManager
+
         addMessage(newMessage);
 
-        printMessage(newMessage);
+        document.getElementById('enterMessage').value = '';
+        messagesDom.innerHTML += messagesToHtml([newMessage]);
+
+        messagesDom.scrollTo({
+            top: messagesDom.scrollHeight, behavior: 'smooth'
+        });
     }
-    
+
     // the user can be told the message was invalid, here
 }
 
-function printMessage(messageJson) {
-    const messagesDom = document.getElementById('messages');
+function checkUsername(username) {
+    // checks whether or not the username is empty, undefined or null
+    // open for further name checks in the future
 
-    document.getElementById('enterMessage').value = '';
+    let usernameIsValid = true;
 
-    messagesDom.innerHTML += `
-    <div class="messageWrapper messageRight">
-        <div class="message">
-            ${messageJson.datetime}<br>
-            <strong>${messageJson.author}:</strong>
-            </br>
-            ${messageJson.message}
-        </div>
-    </div>
-  `;
+    if (username === null || username === undefined || username.length === 0) {
+        document.getElementById("errorContainer").innerHTML = "Please enter your username.";
+        usernameIsValid = false;
+    }
 
-    messagesDom.scrollTo({
-        top: messagesDom.scrollHeight, behavior: 'smooth'
-    });
+    return usernameIsValid;
 }
 
 async function printChatLog() {
@@ -129,10 +104,8 @@ function messagesToHtml(messages) {
 
         let messageRight = '';
 
-        console.log(messageJson.author + ' - ' + username);
-
         if (messageJson.author === username) {
-            messageRight ='messageRight';
+            messageRight = 'messageRight';
         }
 
         messagesHtml += `
@@ -144,7 +117,7 @@ function messagesToHtml(messages) {
                 ${messageJson.message}
             </div>
         </div>
-    `;
+        `;
     }
 
     return messagesHtml;

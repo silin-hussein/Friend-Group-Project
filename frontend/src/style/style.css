@@ -106,7 +106,6 @@ header {
 .messageRight {
     text-align: right;
     justify-content: flex-end;
-    background-color: rgba(18, 124, 135, 1);
 }
 
 .messageRight .message {
