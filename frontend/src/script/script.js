@@ -3,10 +3,9 @@ let username;
 let chatLog = [];
 let chatLogJson = {};
 
-document.getElementById('messageField').addEventListener('keypress', e => {
-    if (e.key === 'Enter') {
-        sendMessage();
-    }
+document.getElementById('messageForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Verhindert das Neuladen der Seite
+    sendMessage();
 });
 
 function sendName() {
@@ -25,7 +24,9 @@ function sendName() {
 }
 
 function sendMessage() {
-    const message = document.getElementById('enterMessage').value;
+    document.getElementById("messageForm").reset();
+
+    const message = document.getElementById("enterMessage").value;
     const messagesDom = document.getElementById('messages');
 
     if (message != null && message.length != 0) {
