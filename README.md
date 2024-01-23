@@ -27,3 +27,11 @@ This project is developed by an agile team of 6 software developers and designer
 ## Get Involved
 
 If you're interested in our project or want to contribute to the team, contact us at s.mayer@HTBLALeonding.onmicrosoft.com.
+
+# Get Started
+
+1. npm install frontend
+2. npm install backend
+3. cd backend
+4. npm run start
+5. open frontend/public/index.html via Web-Browser
