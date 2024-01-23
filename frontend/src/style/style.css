@@ -55,7 +55,7 @@ header {
 
 /* chat screen - message field */
 
-#messageField {
+#messageForm {
     display: flex;
 
     width: 100%;
@@ -112,7 +112,7 @@ header {
     border-radius: 1rem 0rem 1rem 1rem;
 }
 
-#messageField #enterMessage {
+#messageForm #enterMessage {
     width: 75%;
     padding: 2%;
     height: 3.75rem;
@@ -120,7 +120,7 @@ header {
     border-radius: 1rem;
 }
 
-#messageField #sendButton, #reloadButton {
+#messageForm #sendButton, #reloadButton {
     height: 3.75rem;
     width: 3.75rem;
 
@@ -135,7 +135,7 @@ header {
     cursor: pointer;
 }
 
-#messageField #sendButton svg {
+#messageForm #sendButton svg {
     width: 1.75rem;
 }
 

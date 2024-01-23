@@ -3,7 +3,7 @@ let username;
 let chatLog = [];
 let chatLogJson = {};
 
-document.getElementById('messageForm').addEventListener('submit', function(event) {
+document.getElementById('messageForm').addEventListener('submit', event => {
     event.preventDefault(); // Verhindert das Neuladen der Seite
     sendMessage();
 });
@@ -24,8 +24,6 @@ function sendName() {
 }
 
 function sendMessage() {
-    document.getElementById("messageForm").reset();
-
     const message = document.getElementById("enterMessage").value;
     const messagesDom = document.getElementById('messages');
 
@@ -47,6 +45,8 @@ function sendMessage() {
 
         document.getElementById('enterMessage').value = '';
         messagesDom.innerHTML += messagesToHtml([newMessage]);
+
+        document.getElementById("messageForm").reset();
 
         messagesDom.scrollTo({
             top: messagesDom.scrollHeight, behavior: 'smooth'
