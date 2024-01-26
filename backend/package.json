@@ -12,7 +12,7 @@
     "restful",
     "api"
   ],
-  "author": "Elisa Kaltenberger",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
