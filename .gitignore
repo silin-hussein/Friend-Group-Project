@@ -1,5 +1,6 @@
 # Chat storage
-messages.json
+*/messages.json
+data/messages.json
 
 # Node.js
 node_modules/
