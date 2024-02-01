@@ -135,8 +135,8 @@ header {
     cursor: pointer;
 }
 
-#messageForm #sendButton svg {
-    width: 1.75rem;
+svg {
+    height: 2rem;
 }
 
 
