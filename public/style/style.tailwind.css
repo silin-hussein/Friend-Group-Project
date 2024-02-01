@@ -543,16 +543,3 @@ video {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
-
-.h-52 {
-  height: 13rem;
-}
-
-.w-52 {
-  width: 13rem;
-}
-
-.bg-emerald-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(110 231 183 / var(--tw-bg-opacity));
-}
