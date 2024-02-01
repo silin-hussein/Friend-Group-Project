@@ -30,9 +30,6 @@ If you're interested in our project or want to contribute to the team, contact u
 
 # Get Started
 
-1. cd frontend
-2. npm install
-3. cd ../backend
-4. npm install backend
-6. npm run start
-7. open frontend/public/index.html via Web-Browser
+1. npm install
+2. npm run start
+3. Please navigate to "localhost:4001" using a web browser.
