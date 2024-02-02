@@ -30,7 +30,7 @@ function requestMessages() {
 document.getElementById('messageForm').addEventListener('submit', (event) => {
   event.preventDefault();
 
-  if (messageInputDom.value) {
+  if (messageInputDom.value && messageInputDom.value.trim().length > 0) {
     const message = {
       "id": 1,
       "author": username,
@@ -94,7 +94,9 @@ function messagesToHtml(messages) {
               ${messageJson.datetime}<br>
               <strong>${messageJson.author}:</strong>
               </br>
-              ${messageJson.content}
+              <div class="messageContent">
+                ${messageJson.content}
+              </div>
           </div>
       </div>
       `;

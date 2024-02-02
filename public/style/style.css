@@ -85,16 +85,17 @@ header {
 
     padding: 0 5%;
 
-    overflow-y: scroll;
+    overflow: hidden scroll;
 }
 
 .message {
-    width: max-content;
+    max-width: 90%;
     padding: 1rem;
 
     border-radius: 0 1rem 1rem 1rem;
     
     background-color: #D1F3F3;
+    overflow-wrap: break-word;
 }
 
 .messageWrapper {
