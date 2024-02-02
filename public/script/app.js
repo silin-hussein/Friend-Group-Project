@@ -91,11 +91,16 @@ function messagesToHtml(messages) {
       messagesHtml += `
       <div class="messageWrapper ${messageRight}">
           <div class="message" data-id="${messageJson.id}">
-              ${messageJson.datetime}<br>
-              <strong>${messageJson.author}:</strong>
-              </br>
               <div class="messageContent">
                 ${messageJson.content}
+              </div>
+              <div class="messageFooter">
+                <div class="messageAuthor">
+                  ~${messageJson.author}
+                </div>
+                <div class="messageTime">
+                  ${messageJson.datetime}
+                </div>
               </div>
           </div>
       </div>
