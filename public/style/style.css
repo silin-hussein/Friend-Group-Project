@@ -55,6 +55,10 @@ body {
     gap: 1rem;
 }
 
+#usernameAndLogout svg {
+    cursor: pointer;
+}
+
 /* chat screen - message field */
 
 #messageForm {
