@@ -34,6 +34,17 @@ function changeScreenToChat() {
 
 }
 
+function changeScreenToLogin() {
+  document.getElementById("namePopup").style.display = "block";
+  document.getElementById("loginScreen").style.display = "flex";
+
+  document.getElementById('chatScreen').style.display = 'none';
+}
+
+function saveUsername() {
+  localStorage.setItem("username", username);
+}
+
 function requestMessages() {
   socket.emit('request-all-messages');
 }
