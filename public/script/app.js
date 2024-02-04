@@ -55,6 +55,12 @@ function usernameIsset() {
   return false;
 }
 
+function logoutUser() {
+  // Clear username from localstorage
+  localStorage.removeItem("username");
+  changeScreenToLogin();
+}
+
 function requestMessages() {
   socket.emit('request-all-messages');
 }
