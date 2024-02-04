@@ -14,17 +14,24 @@ function sendName() {
   username = document.getElementById("enterName").value;
 
   if (checkUsername(username)) {
-      document.getElementById("namePopup").style.display = "none";
-      document.getElementById("loginScreen").style.display = "none";
+    changeScreenToChat();
 
-      document.getElementById('chatScreen').style.display = 'flex';
-
-      document.body.style.backgroundColor = "white";
-
-      document.getElementById('username').innerHTML = username;
-      
-      requestMessages();
+    saveUsername();
   }
+}
+
+function changeScreenToChat() {
+  document.getElementById("namePopup").style.display = "none";
+  document.getElementById("loginScreen").style.display = "none";
+
+  document.getElementById('chatScreen').style.display = 'flex';
+
+  document.getElementById('username').innerHTML = username;
+
+  document.body.style.backgroundColor = "white";
+
+  requestMessages();
+
 }
 
 function requestMessages() {
