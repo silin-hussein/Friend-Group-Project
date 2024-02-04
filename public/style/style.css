@@ -251,6 +251,7 @@ svg {
 
 input, button {
     border: none;
+    outline: none;
 }
 
 #start-button {
