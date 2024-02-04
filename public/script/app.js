@@ -5,6 +5,11 @@ let username;
 const messageInputDom = document.getElementById('enterMessage');
 const messagesDom = document.getElementById('messages');
 
+if (usernameIsset()) {
+  console.log(username);
+  changeScreenToChat();
+}
+
 function sendName() {
   username = document.getElementById("enterName").value;
 
