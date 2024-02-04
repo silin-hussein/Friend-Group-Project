@@ -45,6 +45,16 @@ function saveUsername() {
   localStorage.setItem("username", username);
 }
 
+function usernameIsset() {
+  let savedUsername = localStorage.getItem("username");
+  if (savedUsername != undefined) {
+    username = savedUsername;
+    console.log(savedUsername);
+    return true;
+  } 
+  return false;
+}
+
 function requestMessages() {
   socket.emit('request-all-messages');
 }
