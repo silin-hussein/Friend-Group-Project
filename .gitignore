@@ -1,7 +1,10 @@
-# Chat storage
+# Messages storage
 messages.json
 */messages.json
 data/messages.json
+
+# Tailwind
+public/style/style.tailwind.css
 
 # Node.js
 node_modules/
