@@ -33,3 +33,8 @@ If you're interested in our project or want to contribute to the team, contact u
 1. npm install
 2. npm run start
 3. Please navigate to "localhost:4001" using a web browser.
+
+If you want to use the Webpack-Demo download the demo folder and execute the following commands:
+1. npm init -y
+2. npm install webpack webpack-cli --save-dev
+3. Navigate to the /dist/index.html using a web browser.
