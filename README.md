@@ -30,6 +30,7 @@ If you're interested in our project or want to contribute to the team, contact u
 
 # Get Started
 
-1. npm install
-2. npm run start
-3. Please navigate to "localhost:4001" using a web browser.
+1. "npm install"
+2. "npm run build-tailwind"
+3. "npm run start" in septerate termianl/cmd
+4. Please navigate to "localhost:4001" using a web browser.
