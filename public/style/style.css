@@ -137,14 +137,14 @@ body {
 #messageForm #enterMessage {
     width: 75%;
     padding: 0 2%;
-    height: 3.75rem;
+    height: 4rem;
     font-size: 1.75em;
     border-radius: 1rem;
 }
 
 #messageForm #sendButton, #reloadButton {
-    height: 3.75rem;
-    width: 3.75rem;
+    height: 4rem;
+    width: 4rem;
 
     border-radius: 1rem;
     background-color: #fff;
