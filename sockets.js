@@ -8,7 +8,7 @@ export function startSocketIo(server) {
         }
     });
 
-    io.on('connection', (socket) => {
+    io.on('connection', async (socket) => {
         console.log('a user connected');
     
         socket.on('request-all-messages', async () => {
@@ -39,6 +39,15 @@ export function startSocketIo(server) {
                 console.log(error);
             }
         });
+
+        socket.on('joinRoom', async (room) => {
+            if (room) {
+                socket.join(room);
+
+            }
+        });
+
+        socket.on
     
         socket.on('disconnect', () => {
             console.log('user disconnected');
