@@ -45,17 +45,17 @@ body {
     background-color: #127C87; */
 }
 
-#username {
+#username, #usernameGroup {
     font-size: xx-large;
 }
 
-#usernameAndLogout {
+#usernameAndLogout, #usernameAndLogoutGroup {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-#usernameAndLogout svg {
+#usernameAndLogout svg, #usernameAndLogoutGroup svg {
     cursor: pointer;
 }
 

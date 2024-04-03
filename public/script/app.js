@@ -7,17 +7,31 @@ const messagesDom = document.getElementById('messages');
 
 if (usernameIsset()) {
   console.log(username);
-  changeScreenToChat();
+  changeScreenToGroups(); // changeScreenToChat()
 }
 
 function sendName() {
   username = document.getElementById("enterName").value;
 
   if (checkUsername(username)) {
-    changeScreenToChat();
+    changeScreenToGroups(); // changeScreenToChat()
 
     saveUsername();
   }
+}
+
+function changeScreenToGroups() {
+  document.getElementById("namePopup").style.display = "none";
+  document.getElementById("loginScreen").style.display = "none";
+
+  document.getElementById('chatScreen').style.display = 'none';
+  document.getElementById('pickGroupScreen').style.display = 'flex';
+
+  document.getElementById('usernameGroup').innerHTML = username;
+
+  document.body.style.backgroundColor = "white";
+
+  requestMessages();
 }
 
 function changeScreenToChat() {
@@ -31,7 +45,6 @@ function changeScreenToChat() {
   document.body.style.backgroundColor = "white";
 
   requestMessages();
-
 }
 
 function changeScreenToLogin() {

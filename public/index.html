@@ -125,12 +125,11 @@
 
     <div id="pickGroupScreen" class="w-svh h-svh hidden justify-between flex-col">
       <header
-      class="w-full h-32 flex px-16 justify-between items-center bg-original-primary text-white rounded-b-2xl"
-      >
+      class="w-full h-32 flex px-16 justify-between items-center bg-original-primary text-white rounded-b-2xl">
         <img style="height: 6rem" src="./assets/design2.png" alt="" />
 
-        <div id="usernameAndLogout">
-          <span id="username">Username</span>
+        <div id="usernameAndLogoutGroup">
+          <span id="usernameGroup">Username</span>
           <svg onclick="logoutUser()"
             xmlns="https://www.w3.org/2000/svg"
             width="36"
@@ -150,7 +149,12 @@
         </div>
       </header>
 
-      <div id="pickGroupSelection"></div>
+      <div id="pickGroupSelection" class="h-full w-full flex justify-center items-center">
+        <ul>
+          <li onclick="changeScreenToChat()" class="px-2 py-1 m-2 bg-emerald-200 border-emerald-300 border-2 rounded-md hover:scale-105 pointer">chat 1</li>
+          <li onclick="changeScreenToChat()" class="px-2 py-1 m-2 bg-emerald-200 border-emerald-300 border-2 rounded-md hover:scale-105 pointer">chat 2</li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
