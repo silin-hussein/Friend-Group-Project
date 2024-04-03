@@ -136,7 +136,7 @@ body {
 
 #messageForm #enterMessage {
     width: 75%;
-    padding: 2%;
+    padding: 0 2%;
     height: 3.75rem;
     font-size: 1.75em;
     border-radius: 1rem;
