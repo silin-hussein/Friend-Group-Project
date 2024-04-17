@@ -10,7 +10,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const server = createServer(app);
 
-app.use(express.static(join(__dirname, 'public')));
+app.use(express.static(join(__dirname, 'public_new')));
 
 server.listen(4001, () => {
     console.log('Example app listening on port 4001!');
