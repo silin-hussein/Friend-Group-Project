@@ -7,7 +7,8 @@ const messagesDom = document.getElementById('messages');
 
 if (usernameIsset()) {
   console.log(username);
-  changeScreenToGroups(); // changeScreenToChat()
+  requestMessages();
+  //changeScreenToGroups(); // changeScreenToChat()
 }
 
 function sendName() {
@@ -21,6 +22,7 @@ function sendName() {
 }
 
 function changeScreenToGroups() {
+  /*
   document.getElementById("namePopup").style.display = "none";
   document.getElementById("loginScreen").style.display = "none";
 
@@ -30,11 +32,14 @@ function changeScreenToGroups() {
   document.getElementById('usernameGroup').innerHTML = username;
 
   document.body.style.backgroundColor = "white";
+  */
 
-  requestMessages();
+  window.location.href = "../pages/roomSelect.html";
+  //requestMessages();
 }
 
 function changeScreenToChat() {
+  /*
   document.getElementById("namePopup").style.display = "none";
   document.getElementById("loginScreen").style.display = "none";
 
@@ -43,15 +48,21 @@ function changeScreenToChat() {
   document.getElementById('username').innerHTML = username;
 
   document.body.style.backgroundColor = "white";
+   */
 
+  window.location.href = "../pages/room.html";
   requestMessages();
 }
 
 function changeScreenToLogin() {
+  /*
   document.getElementById("namePopup").style.display = "block";
   document.getElementById("loginScreen").style.display = "flex";
 
   document.getElementById('chatScreen').style.display = 'none';
+   */
+
+  window.location.href = "../pages/login.html";
 }
 
 function saveUsername() {
