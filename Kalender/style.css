@@ -1,5 +1,5 @@
 :root {
-    --primary-clr: #b38add;
+    --primary-clr:  #D1F3F3;;
   }
   * {
     margin: 0;
@@ -7,39 +7,21 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
   }
-  /* nice scroll bar */
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-  ::-webkit-scrollbar-track {
-    background: #f5f5f5;
-    border-radius: 50px;
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--primary-clr);
-    border-radius: 50px;
-  }
+
   
   body {
     position: relative;
-    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 30px;
-    background-color: #e2e1dc;
   }
   .container {
     position: relative;
-    width: 1200px;
-    min-height: 850px;
-    margin: 0 auto;
-    padding: 5px;
+    width: 80%;
     color: #fff;
     display: flex;
-  
     border-radius: 10px;
-    background-color: #373c4f;
+    background-color: #127C87;
   }
   .left {
     width: 60%;
@@ -53,31 +35,15 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-between;
-    color: #878895;
+    color: black;
     border-radius: 5px;
     background-color: #fff;
   }
   /* set after behind the main element */
-  .calendar::before,
-  .calendar::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 100%;
-    width: 12px;
-    height: 97%;
-    border-radius: 0 5px 5px 0;
-    background-color: #d3d4d6d7;
-    transform: translateY(-50%);
-  }
-  .calendar::before {
-    height: 94%;
-    left: calc(100% + 12px);
-    background-color: rgb(153, 153, 153);
-  }
+ 
   .calendar .month {
     width: 100%;
-    height: 150px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -129,7 +95,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    color: var(--primary-clr);
+    color: black;
     border: 1px solid #f5f5f5;
   }
   .calendar .days .day:nth-child(7n + 1) {
@@ -156,7 +122,7 @@
   .calendar .days .active {
     position: relative;
     font-size: 2rem;
-    color: #fff;
+    color:black;
     background-color: var(--primary-clr);
   }
   .calendar .days .active::before {
@@ -229,10 +195,10 @@
     border-radius: 5px;
     background-color: transparent;
     cursor: pointer;
-    color: var(--primary-clr);
+    color: black;
   }
   .calendar .goto-today button:hover {
-    color: #fff;
+    color: black;
     background-color: var(--primary-clr);
   }
   .calendar .goto-today .goto button {
@@ -243,7 +209,6 @@
   .container .right {
     position: relative;
     width: 40%;
-    min-height: 100%;
     padding: 20px 0;
   }
   
@@ -268,7 +233,7 @@
   .right .today-date .event-date {
     font-size: 1rem;
     font-weight: 400;
-    color: #878895;
+    color: white;
   }
   .events {
     width: 100%;
@@ -356,7 +321,7 @@
     align-items: center;
     justify-content: center;
     font-size: 1rem;
-    color: #878895;
+    color: white;
     border: 2px solid #878895;
     opacity: 0.5;
     border-radius: 50%;
@@ -377,7 +342,7 @@
     justify-content: center;
     font-size: 1.5rem;
     font-weight: 500;
-    color: #878895;
+    color:white;
   }
   .add-event-wrapper {
     position: absolute;
