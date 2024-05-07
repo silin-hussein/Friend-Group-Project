@@ -256,7 +256,7 @@
     padding: 0 20px;
     padding-left: 50px;
     color: #fff;
-    background: linear-gradient(90deg, #3f4458, transparent);
+  
     cursor: pointer;
   }
   /* even event */
@@ -264,7 +264,8 @@
     background: transparent;
   }
   .events .event:hover {
-    background: linear-gradient(90deg, var(--primary-clr), transparent);
+    background: var(--primary-clr);
+    color: black;
   }
   .events .event .title {
     display: flex;
@@ -286,12 +287,12 @@
   .events .event .event-time {
     font-size: 0.8rem;
     font-weight: 400;
-    color: #878895;
+    color:white;
     margin-left: 15px;
     pointer-events: none;
   }
   .events .event:hover .event-time {
-    color: #fff;
+    color:black;
   }
   /* add tick in event after */
   .events .event::after {
