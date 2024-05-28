@@ -44,6 +44,15 @@ public class NotesApp {
         nextNoteID = getNextNoteID();
     }
 
+    /*
+     * @GET
+     * 
+     * @Produces(MediaType.APPLICATION_JSON)
+     * public List<Note> get() {
+     * return notesRepository.getAllNotes();
+     * }
+     */
+
     @Transactional
     @POST
     public Response add(Note note) {
@@ -69,6 +78,31 @@ public class NotesApp {
     public Note getById(@PathParam("id") Long id) {
         return notesRepository.findById(id);
     }
+
+    /*
+     * @DELETE
+     * 
+     * @Produces(MediaType.APPLICATION_JSON)
+     * public List<Note> deleteNote(String value) {
+     * try {
+     * int id = Integer.parseInt(value.strip());
+     * Note noteToDelete = null;
+     * for (Note note : notes) {
+     * if (note.getID() == id) {
+     * noteToDelete = note;
+     * break;
+     * }
+     * }
+     * if (noteToDelete != null) {
+     * notes.remove(noteToDelete);
+     * saveNotes();
+     * }
+     * } catch (Exception e) {
+     * }
+     * 
+     * return notes;
+     * }
+     */
 
     private List<Note> loadNotes() {
         try (FileInputStream fileInputStream = new FileInputStream(NOTES_FILENAME);
