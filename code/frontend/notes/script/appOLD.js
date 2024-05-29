@@ -156,12 +156,11 @@ function saveNote() {
   console.log("newMessage:", newMessage);
 
   fetch("/notes", options)
-      //.then(response => response.json())
+      .then(response => response.json())
       .then(data => {
         console.log("saveNote: ", data);
         closeNoteWindow();
-        requestMessages();
-        //fillList(data);
+        fillList(data);
       })
       .catch(error => console.log(error));
 }
@@ -225,13 +224,12 @@ function deletePost(id) {
     body: id
   }
 
-  fetch("/notes/" + id, options)
-      //.then(response => response.json())
+  fetch("/notes", options)
+      .then(response => response.json())
       .then(data => {
         console.log("deleteNote: ", data);
         closeNoteWindow();
-        requestMessages();
-        //fillList(data);
+        fillList(data);
       })
       .catch(error => console.log(error));
 }
