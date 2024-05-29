@@ -6,7 +6,7 @@ Different to any other Social Media App, this application helps you to stay in c
   
 - **Group Chat:** A group chat designed to stay in touch and make plans. Similar to WhatsApp group chat but tailored to the needs of close friend groups.
   
-- **Group Notes:** A group chat designed to stay in touch and make plans. Similar to WhatsApp group chat but tailored to the needs of close friend groups.
+- **Group Notes:** A shared notes platform designed to create notes and read the ones others created. Similar to Google notes but tailored to the needs of close friend groups.
   
 - **Group Calender:** A group calendar designed to share your events with friends. It's made to find the perfect date for your plans.
 
