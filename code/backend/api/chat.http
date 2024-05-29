@@ -1,7 +1,7 @@
 GET http://localhost:8080/chats
 Content-Type: application/json
 
-###fe
+###
 
 GET http://localhost:8080/chats/2
 Content-Type: application/json
