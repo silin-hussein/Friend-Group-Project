@@ -38,4 +38,4 @@ If you're interested in our project or want to contribute to the team, contact u
 1. /database/ "./start.sh"
 2. /code/backend/ "./mvnw quarkus:dev"
 3. /code/frontend/ open feature in desired dev enviroment (ex. VSCode Lifeserver)
-4. Launch index.hmtl
+4. Launch index.html
