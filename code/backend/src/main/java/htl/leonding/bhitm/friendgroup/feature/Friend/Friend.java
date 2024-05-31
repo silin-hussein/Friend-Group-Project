@@ -12,6 +12,18 @@ public class Friend {
     private String lastName;
     private String description;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "friend_id")
+    private List<Note> notes;
+
+    public List<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
