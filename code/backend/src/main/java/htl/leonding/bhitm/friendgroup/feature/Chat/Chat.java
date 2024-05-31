@@ -12,7 +12,7 @@ public class Chat {
     private Long id;
 
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "friend_id")
+    @JoinColumn(name = "message_id")
     private List<Message> messages;
 
     private String name;
