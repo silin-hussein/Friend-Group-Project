@@ -1,12 +1,17 @@
 package htl.leonding.bhitm.friendgroup.feature.Friend;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import htl.leonding.bhitm.friendgroup.feature.Note.Note;
+import htl.leonding.bhitm.friendgroup.feature.calendar.Event.Event;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Friend {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public Long id;
+
     private String username;
     private String firstName;
     private String lastName;
@@ -16,17 +21,9 @@ public class Friend {
     @JoinColumn(name = "friend_id")
     private List<Note> notes;
 
-    public List<Note> getNotes() {
-        return notes;
-    }
-
-    public void setNotes(List<Note> notes) {
-        this.notes = notes;
-    }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "friend_id")
+    private List<Event> events;
 
     public void setId(Long id) {
         this.id = id;
@@ -66,6 +63,22 @@ public class Friend {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public List<Note> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
+    }
+
+    public List<Event> getEvents() {
+        return events;
+    }
+
+    public void setEvents(List<Event> events) {
+        this.events = events;
     }
 
     public Friend(String description, String lastName, String firstName, String username) {
