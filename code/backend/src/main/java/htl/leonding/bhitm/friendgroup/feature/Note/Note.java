@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Entity
-public class Note implements Serializable {
+public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -19,6 +19,10 @@ public class Note implements Serializable {
     private String message;
     private LocalDateTime createdTime;
     private LocalDateTime updateTime;
+
+    public Note() {
+
+    }
 
     public long getID() {
         return id;
@@ -48,8 +52,6 @@ public class Note implements Serializable {
         return type;
     }
 
-    //-------------------------
-
     public void setID(long id) {
         this.id = id;
     }
@@ -76,12 +78,6 @@ public class Note implements Serializable {
 
     public void setUpdateTime(LocalDateTime updateTime) {
         this.updateTime = updateTime;
-    }
-
-    //----------------------------
-
-    public Note() {
-
     }
 
     public Note(long id, String title, String author, String type, String message, LocalDateTime createdTime, LocalDateTime updateTime) {

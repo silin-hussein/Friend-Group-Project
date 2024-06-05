@@ -1,0 +1,22 @@
+GET http://localhost:8080/notes
+Content-Type: application/json
+
+###
+
+GET http://localhost:8080/notes/2
+Content-Type: application/json
+
+###
+
+POST http://localhost:8080/notes
+Content-Type: application/json
+
+{
+  "title": "note title",
+  "description": "des des"
+}
+
+###
+
+DELETE http://localhost:8080/notes/1
+Content-Type: application/json

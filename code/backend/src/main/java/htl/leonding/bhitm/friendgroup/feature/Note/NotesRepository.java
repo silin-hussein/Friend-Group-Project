@@ -12,15 +12,5 @@ import java.util.List;
 
 @ApplicationScoped
 public class NotesRepository implements PanacheRepository<Note> {
-    /*
-     * public List<Note> getAllNotes() {
-     * var ql = "select n from Note n";
-     * 
-     * var notes = getEntityManager()
-     * .createQuery(ql, Note.class)
-     * .getResultList();
-     * 
-     * return notes;
-     * }
-     */
+
 }
