@@ -1,4 +1,4 @@
-package htl.leonding.bhitm.friendgroup.feature.Chat.Message;
+package htl.leonding.bhitm.friendgroup.feature.chat.message;
 
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;

@@ -1,4 +1,4 @@
-package htl.leonding.bhitm.friendgroup.feature.calendar.Event;
+package htl.leonding.bhitm.friendgroup.feature.calendar.event;
 
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;

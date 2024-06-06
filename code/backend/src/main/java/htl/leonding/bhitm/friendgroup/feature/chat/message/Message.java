@@ -1,6 +1,6 @@
-package htl.leonding.bhitm.friendgroup.feature.Chat.Message;
+package htl.leonding.bhitm.friendgroup.feature.chat.message;
 
-import htl.leonding.bhitm.friendgroup.feature.Friend.Friend;
+import htl.leonding.bhitm.friendgroup.feature.friend.Friend;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;

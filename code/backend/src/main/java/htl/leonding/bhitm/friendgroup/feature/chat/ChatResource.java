@@ -1,8 +1,8 @@
-package htl.leonding.bhitm.friendgroup.feature.Chat;
+package htl.leonding.bhitm.friendgroup.feature.chat;
 
-import htl.leonding.bhitm.friendgroup.feature.Friend.FriendRepository;
-import htl.leonding.bhitm.friendgroup.feature.Chat.Message.Message;
-import htl.leonding.bhitm.friendgroup.feature.Chat.Message.MessageRepository;
+import htl.leonding.bhitm.friendgroup.feature.friend.FriendRepository;
+import htl.leonding.bhitm.friendgroup.feature.chat.message.Message;
+import htl.leonding.bhitm.friendgroup.feature.chat.message.MessageRepository;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;

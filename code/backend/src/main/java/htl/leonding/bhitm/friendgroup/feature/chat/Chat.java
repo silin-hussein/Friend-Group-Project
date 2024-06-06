@@ -1,6 +1,7 @@
-package htl.leonding.bhitm.friendgroup.feature.Chat;
+package htl.leonding.bhitm.friendgroup.feature.chat;
 
-import htl.leonding.bhitm.friendgroup.feature.Chat.Message.Message;
+import htl.leonding.bhitm.friendgroup.feature.chat.message.Message;
+import htl.leonding.bhitm.friendgroup.feature.friend.Friend;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -14,6 +15,10 @@ public class Chat {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "chat_id")
     private List<Message> messages;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "test_table")
+    private List<Friend> friends;
 
     private String name;
 

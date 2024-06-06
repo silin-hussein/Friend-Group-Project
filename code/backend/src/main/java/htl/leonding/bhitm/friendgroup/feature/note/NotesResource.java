@@ -1,25 +1,11 @@
-package htl.leonding.bhitm.friendgroup.feature.Note;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import htl.leonding.bhitm.friendgroup.feature.Note.Note;
-import htl.leonding.bhitm.friendgroup.feature.Note.NotesRepository;
-import io.quarkus.qute.Location;
-import io.quarkus.qute.Template;
-import io.quarkus.qute.TemplateInstance;
+package htl.leonding.bhitm.friendgroup.feature.note;
 
 import jakarta.inject.Inject;
-import jakarta.json.Json;
-import jakarta.json.JsonObject;
-import jakarta.json.JsonValue;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
-import java.io.*;
-import java.time.LocalDateTime;
-import java.util.LinkedList;
 import java.util.List;
 
 import static java.util.Objects.requireNonNull;

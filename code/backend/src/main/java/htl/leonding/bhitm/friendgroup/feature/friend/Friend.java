@@ -1,7 +1,7 @@
-package htl.leonding.bhitm.friendgroup.feature.Friend;
+package htl.leonding.bhitm.friendgroup.feature.friend;
 
-import htl.leonding.bhitm.friendgroup.feature.Note.Note;
-import htl.leonding.bhitm.friendgroup.feature.calendar.Event.Event;
+import htl.leonding.bhitm.friendgroup.feature.note.Note;
+import htl.leonding.bhitm.friendgroup.feature.calendar.event.Event;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -79,13 +79,6 @@ public class Friend {
 
     public void setEvents(List<Event> events) {
         this.events = events;
-    }
-
-    public Friend(String description, String lastName, String firstName, String username) {
-        this.description = description;
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.username = username;
     }
 
     public Friend() {
