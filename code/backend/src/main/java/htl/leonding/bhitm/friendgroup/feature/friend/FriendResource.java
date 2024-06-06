@@ -1,4 +1,4 @@
-package htl.leonding.bhitm.friendgroup.feature.Friend;
+package htl.leonding.bhitm.friendgroup.feature.friend;
 
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
@@ -14,9 +14,16 @@ public class FriendResource {
     @Inject
     FriendRepository friendRepository;
 
+    @Inject
+    FriendMapper friendMapper;
+
     @GET
-    public List<Friend> all() {
-        return friendRepository.listAll();
+    public List<FriendDto> all() {
+        return friendRepository
+                .listAll()
+                .stream()
+                .map(friendMapper::toResource)
+                .toList();
     }
 
     @Path("/{id}")
