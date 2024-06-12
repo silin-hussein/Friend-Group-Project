@@ -3,7 +3,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:8080/notes/2
+GET http://localhost:8080/notes/4
 Content-Type: application/json
 
 ###
@@ -12,11 +12,11 @@ POST http://localhost:8080/notes
 Content-Type: application/json
 
 {
-  "title": "note title",
-  "description": "des des"
+  "title": "note title elisa",
+  "message  ": "des des"
 }
 
 ###
 
-DELETE http://localhost:8080/notes/1
+DELETE http://localhost:8080/notes/2
 Content-Type: application/json
