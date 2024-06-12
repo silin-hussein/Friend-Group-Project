@@ -18,7 +18,7 @@ function sendName() {
 }
 
 function requestMessages() {
-  fetch("/notes")
+  fetch("/api/notes/")
       .then(response => response.json())
       .then(data => {
         console.log("requestMessages: ", data);
@@ -155,7 +155,7 @@ function saveNote() {
 
   console.log("newMessage:", newMessage);
 
-  fetch("/notes", options)
+  fetch("/api/notes/", options)
       //.then(response => response.json())
       .then(data => {
         console.log("saveNote: ", data);
@@ -225,7 +225,7 @@ function deletePost(id) {
     body: id
   }
 
-  fetch("/notes/" + id, options)
+  fetch("/api/notes/" + id, options)
       //.then(response => response.json())
       .then(data => {
         console.log("deleteNote: ", data);
